@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Play a branching escape-room-style text adventure with multiple endings."><title>Escape the Circus | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to game</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a aria-current="page" href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <header class="page-header"><p class="eyebrow">Interactive story</p><h1>Escape the Circus</h1><p class="lead">Your progress is saved automatically. The circus is delighted by your confidence.</p></header>
+    <div class="quiz-shell"><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="escape-progress"></div></div><div class="progress-label"><span id="scene-progress">0 of 25+ scenes explored</span><button class="btn btn-small btn-ghost" id="restart" type="button">Restart</button></div></div>
+    <article class="card scene-card" id="scene-card" aria-live="polite"><p class="eyebrow" id="scene-label">Scene</p><h2 id="scene-title">Loading hallway…</h2><div class="scene-copy" id="scene-copy"></div><div class="choices" id="scene-choices"></div></article>
+  </main>
+  <footer class="site-footer"><div class="shell"><p><strong>Unofficial fan project.</strong> No exits were harmed during development.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script><script src="js/escape.js"></script>
+</body>
+</html>

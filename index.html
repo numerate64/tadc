@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080716">
+  <meta name="description" content="The Digital Circus Hub: quizzes, bizarre adventures, escape games, fortunes, and fan-made circus chaos.">
+  <title>The Digital Circus Hub</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the chaos</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a aria-current="page" href="index.html">Home</a>
+        <a data-transition href="quiz.html">Quiz</a>
+        <a data-transition href="adventure.html">Adventures</a>
+        <a data-transition href="escape.html">Escape</a>
+        <a data-transition href="characters.html">Characters</a>
+        <a data-transition href="achievements.html">Achievements</a>
+        <a data-transition href="fortune.html">Fortune</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-ring" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Welcome, valued digital resident</p>
+        <h1>The <span class="neon-text">Digital Circus</span> Hub</h1>
+        <p class="lead">Personality tests, impossible quests, suspicious exits, and exactly zero legally binding guarantees.</p>
+        <div class="hero-actions">
+          <a class="btn btn-pink" data-transition href="quiz.html">Take the Personality Quiz</a>
+          <a class="btn btn-cyan" data-transition href="adventure.html">Generate an Adventure</a>
+          <a class="btn btn-purple" data-transition href="escape.html">Escape the Circus</a>
+        </div>
+        <div class="caine-message" id="caine-message" aria-live="polite">Preparing your complimentary nonsense…</div>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="attractions-title">
+      <div class="section-heading">
+        <p class="eyebrow">Today's attractions</p>
+        <h2 id="attractions-title">Choose your malfunction</h2>
+        <p class="lead">Every attraction is locally powered, privacy-friendly, and only mildly hostile to causality.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card feature-card"><span class="feature-icon">🎭</span><h3>Who are you, digitally?</h3><p>Fifteen carefully calibrated questions reveal your circus counterpart.</p><a class="btn btn-small btn-pink" data-transition href="quiz.html">Begin quiz</a></article>
+        <article class="card feature-card"><span class="feature-icon">🎲</span><h3>Adventure roulette</h3><p>Generate thousands of quests involving impossible objects and dubious rewards.</p><a class="btn btn-small btn-cyan" data-transition href="adventure.html">Spin reality</a></article>
+        <article class="card feature-card"><span class="feature-icon">🚪</span><h3>The alleged exit</h3><p>Navigate a branching story with 25+ scenes and several dramatically bad endings.</p><a class="btn btn-small btn-purple" data-transition href="escape.html">Start escaping</a></article>
+        <article class="card feature-card"><span class="feature-icon">🧩</span><h3>Character guide</h3><p>Compare chaos, optimism, sanity, mischief, and questionable survival odds.</p><a class="btn btn-small btn-ghost" data-transition href="characters.html">Meet the cast</a></article>
+        <article class="card feature-card"><span class="feature-icon">🏆</span><h3>Achievement cabinet</h3><p>Your victories, poor decisions, and hidden discoveries are saved in this browser.</p><a class="btn btn-small btn-ghost" data-transition href="achievements.html">View gallery</a></article>
+        <article class="card feature-card"><span class="feature-icon">🔮</span><h3>Daily fortune</h3><p>Receive one deterministic warning from the circus every calendar day.</p><a class="btn btn-small btn-ghost" data-transition href="fortune.html">Consult the orb</a></article>
+      </div>
+      <div class="stat-strip" aria-label="Site statistics">
+        <div class="stat"><strong data-count="15">0</strong><span>Quiz questions</span></div>
+        <div class="stat"><strong data-count="290304">0</strong><span>Possible adventures</span></div>
+        <div class="stat"><strong data-count="31">0</strong><span>Escape scenes</span></div>
+        <div class="stat"><strong data-count="11">0</strong><span>Achievements</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell"><p><strong>Unofficial fan project.</strong> Not affiliated with or endorsed by the creators or rights holders of The Amazing Digital Circus.</p><p>No tracking. Progress stays in your browser.</p></div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/achievements.js"></script>
+  <script>
+    const message = document.querySelector("#caine-message");
+    let messageIndex = Math.floor(Math.random() * CIRCUS_DATA.caineMessages.length);
+    function rotateMessage() {
+      message.classList.add("glitching");
+      setTimeout(() => {
+        message.textContent = CIRCUS_DATA.caineMessages[messageIndex++ % CIRCUS_DATA.caineMessages.length];
+        message.classList.remove("glitching");
+      }, 220);
+    }
+    rotateMessage();
+    setInterval(rotateMessage, 6500);
+
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll("[data-count]").forEach((node) => {
+      const target = Number(node.dataset.count);
+      if (reduceMotion) { node.textContent = target.toLocaleString(); return; }
+      const started = performance.now();
+      const tick = (now) => {
+        const progress = Math.min((now - started) / 1200, 1);
+        node.textContent = Math.floor(target * (1 - Math.pow(1 - progress, 3))).toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  </script>
+</body>
+</html>

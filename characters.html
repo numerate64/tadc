@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="An interactive fan-made character guide with playful personality statistics."><title>Character Guide | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to characters</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a data-transition href="escape.html">Escape</a><a aria-current="page" href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <header class="page-header"><p class="eyebrow">Know your neighbors</p><h1>Character Guide</h1><p class="lead">Expand each original profile card for completely unlicensed, scientifically questionable statistics.</p></header>
+    <section class="grid character-grid" id="character-grid" aria-label="Character profiles"></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><p><strong>Unofficial fan project.</strong> No official art is used; all visuals are original interface elements and placeholders.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script>
+  <script>
+    const labels = { chaos:"Chaos", optimism:"Optimism", sanity:"Sanity", mischief:"Mischief", survival:"Survival Odds" };
+    document.querySelector("#character-grid").innerHTML = Object.entries(CIRCUS_DATA.characters).map(([name, character]) => `
+      <details class="card character-card">
+        <summary class="character-summary"><span class="mini-avatar" aria-hidden="true">${character.emoji}</span><span><span class="eyebrow">Digital resident</span><strong>${name}</strong></span><span aria-hidden="true">＋</span></summary>
+        <div class="character-bio"><p>${character.description}</p><div class="stats-list">${Object.entries(character.stats).map(([key,value]) => `<div class="mini-stat"><span>${labels[key]}</span><span class="mini-bar"><span style="width:${value}%"></span></span><strong>${value}</strong></div>`).join("")}</div></div>
+      </details>`).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Receive a deterministic daily circus fortune."><title>Daily Fortune | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to fortune</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a data-transition href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a aria-current="page" href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <section class="fortune-machine"><p class="eyebrow">One prophecy per calendar day</p><h1>Daily Circus Fortune</h1><p class="lead">The orb uses an extremely advanced date-based algorithm and absolutely no common sense.</p><div class="fortune-orb"><p class="fortune-text" id="fortune-text">The pixels are consulting their manager…</p></div><p class="fortune-date" id="fortune-date"></p><div class="button-row"><button class="btn btn-cyan" id="copy-fortune" type="button">Copy Fortune</button><a class="btn btn-ghost" data-transition href="adventure.html">Tempt Fate Further</a></div><p id="fortune-status" role="status"></p></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><p>Come back tomorrow for a new warning from the void.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script><script src="js/fortune.js"></script>
+</body>
+</html>

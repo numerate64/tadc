@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Generate bizarre, random Digital Circus-inspired adventure prompts."><title>Adventure Generator | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to generator</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a aria-current="page" href="adventure.html">Adventures</a><a data-transition href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <header class="page-header"><p class="eyebrow">Absolutely no liability</p><h1>Caine's Totally Safe Adventure Generator</h1><p class="lead">Combine impossible places, unstable objects, theatrical enemies, and rewards of questionable value.</p></header>
+    <section class="card">
+      <div class="adventure-display" id="adventure-text" aria-live="polite">Press the button. What could possibly become sentient?</div>
+      <div class="button-row"><button class="btn btn-pink" id="generate" type="button">Generate Adventure</button><button class="btn btn-cyan" id="copy" type="button" disabled>Copy Adventure</button><button class="btn btn-purple" id="favorite" type="button" disabled>Favorite Adventure</button></div>
+      <p id="adventure-status" role="status" style="text-align:center"></p>
+    </section>
+    <section class="section" aria-labelledby="favorites-title"><div class="section-heading"><p class="eyebrow">Saved locally</p><h2 id="favorites-title">Favorite Adventures</h2><p>Your hand-picked collection of missions that should never be attempted.</p></div><div class="favorites-list" id="favorites-list"></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><p><strong>Unofficial fan project.</strong> Adventures are generated and saved entirely in your browser.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script><script src="js/adventure.js"></script>
+</body>
+</html>

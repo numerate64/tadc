@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Review achievements earned throughout The Digital Circus Hub."><title>Achievements | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to achievements</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a data-transition href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a aria-current="page" href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <header class="page-header"><p class="eyebrow">Permanent record</p><h1>Achievement Gallery</h1><p class="lead">A tasteful monument to your courage, curiosity, and repeated failure to follow warning labels.</p></header>
+    <div class="stat-strip" style="margin-bottom:28px"><div class="stat"><strong id="earned-count">0</strong><span>Unlocked</span></div><div class="stat"><strong id="adventure-count">0</strong><span>Adventures generated</span></div><div class="stat"><strong id="scene-count">0</strong><span>Scenes explored</span></div><div class="stat"><strong id="ending-count">0</strong><span>Endings found</span></div></div>
+    <section class="grid achievement-grid" id="achievement-grid" aria-label="Achievements"></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><p>Achievements and progress are stored only in your browser using localStorage.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script>
+  <script>
+    function renderAchievements() {
+      const state = CircusAchievements.state();
+      const earned = Object.keys(state.achievements).length;
+      document.querySelector("#earned-count").textContent = earned;
+      document.querySelector("#adventure-count").textContent = state.stats.adventures;
+      document.querySelector("#scene-count").textContent = state.stats.scenesVisited.length;
+      document.querySelector("#ending-count").textContent = state.stats.endings.length;
+      document.querySelector("#achievement-grid").innerHTML = Object.entries(CircusAchievements.catalog).map(([id, item]) => {
+        const date = state.achievements[id];
+        const secret = item.hidden && !date;
+        return `<article class="card achievement-card ${date ? "" : "locked"}"><div class="achievement-icon">${secret ? "❔" : item.icon}</div><p class="achievement-status">${date ? "Unlocked" : "Locked"}</p><h2>${secret ? "Secret Achievement" : item.title}</h2><p>${secret ? "The circus refuses to elaborate." : item.description}</p>${date ? `<small>Earned ${new Date(date).toLocaleDateString()}</small>` : ""}</article>`;
+      }).join("");
+    }
+    renderAchievements();
+    addEventListener("circus:achievement", renderAchievements);
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716">
+  <meta name="description" content="Discover which Digital Circus character matches your chaotic personality.">
+  <title>Character Quiz | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to quiz</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a aria-current="page" href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a data-transition href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
+  <main class="page-main shell" id="main">
+    <header class="page-header"><p class="eyebrow">Identity scan</p><h1>Which Digital Circus Character Are You?</h1><p class="lead">Fifteen questions. Seven possible personalities. One unavoidable crisis of self.</p></header>
+    <section class="quiz-shell" id="quiz-app" aria-live="polite">
+      <div id="quiz-progress"><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="quiz-progress-fill"></div></div><div class="progress-label"><span id="quiz-progress-text">Question 1 of 15</span><span id="quiz-percent">0%</span></div></div>
+      <article class="card question-card" id="question-card"><p class="question-count" id="question-count"></p><h2 id="question-text">Calibrating personality destabilizer…</h2><div class="answers" id="answers"></div></article>
+      <article class="card hidden" id="result-card"><div class="result-layout"><div class="character-placeholder" id="result-image" role="img" aria-label="Character image placeholder"></div><div><p class="eyebrow">The machine has spoken</p><h2 id="result-name"></h2><p id="result-description"></p><div id="result-meters"></div></div></div><div class="button-row" style="margin-top:24px"><button class="btn btn-pink" id="share-result" type="button">Share Result Card</button><button class="btn btn-cyan" id="download-result" type="button">Download Card</button><button class="btn btn-ghost" id="retake-quiz" type="button">Retake Quiz</button></div><p id="share-status" role="status"></p></article>
+      <canvas class="hidden" id="share-canvas" width="1200" height="630"></canvas>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell"><p><strong>Unofficial fan project.</strong> Character names are used for fan commentary; artwork is represented by original placeholders.</p></div></footer>
+  <script src="js/data.js"></script><script src="js/achievements.js"></script><script src="js/quiz.js"></script>
+</body>
+</html>
