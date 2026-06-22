@@ -18,5 +18,7 @@
         <div class="character-bio"><p>${character.description}</p><div class="stats-list">${Object.entries(character.stats).map(([key,value]) => `<div class="mini-stat"><span>${labels[key]}</span><span class="mini-bar"><span style="width:${value}%"></span></span><strong>${value}</strong></div>`).join("")}</div></div>
       </details>`).join("");
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@17.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="emoji-renderer.js"></script>
 </body>
 </html>
