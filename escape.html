@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Play a branching escape-room-style text adventure with multiple endings."><title>Escape the Circus | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080716"><meta name="description" content="Play a branching escape-room-style text adventure with multiple endings."><title>Escape the Circus | The Digital Circus Hub</title><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">    <style id="bmc-support-style">
+      .bmc-support {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 10000;
+        margin: 0;
+        padding: 8px 12px;
+        border: 1px solid #d8c69f;
+        border-radius: 999px;
+        background: rgba(255, 251, 240, 0.97);
+        box-shadow: 0 2px 10px rgba(23, 32, 38, 0.16);
+        font: 600 0.9rem/1.3 system-ui, sans-serif;
+      }
+      .bmc-support a { color: #5b3a06; text-decoration: none; white-space: nowrap; }
+      .bmc-support a:hover, .bmc-support a:focus-visible { text-decoration: underline; }
+      @media (max-width: 520px) {
+        .bmc-support { left: 50%; right: auto; transform: translateX(-50%); }
+      }
+    </style>
+</head>
 <body>
   <a class="skip-link" href="#main">Skip to game</a>
   <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Digital Circus Hub</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a data-transition href="quiz.html">Quiz</a><a data-transition href="adventure.html">Adventures</a><a aria-current="page" href="escape.html">Escape</a><a data-transition href="characters.html">Characters</a><a data-transition href="achievements.html">Achievements</a><a data-transition href="fortune.html">Fortune</a></nav></div></header>
@@ -10,9 +30,7 @@
     <article class="card scene-card" id="scene-card" aria-live="polite"><p class="eyebrow" id="scene-label">Scene</p><h2 id="scene-title">Loading hallway…</h2><div class="scene-copy" id="scene-copy"></div><div class="choices" id="scene-choices"></div></article>
   </main>
   <footer class="site-footer"><div class="shell"><p><strong>Unofficial fan project.</strong> No exits were harmed during development.</p></div>
-    <p style="margin: 1rem auto; padding: 0.75rem 1rem; text-align: center; font: 0.95rem/1.5 system-ui, sans-serif;">
-      <a href="https://buymeacoffee.com/Caliche" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 0.15em;">☕ Buy me a coffee</a>
-    </p>
+    <p class="bmc-support"><a href="https://buymeacoffee.com/Caliche" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a></p>
 </footer>
   <script src="js/data.js"></script><script src="js/achievements.js"></script><script src="js/escape.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@17.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
